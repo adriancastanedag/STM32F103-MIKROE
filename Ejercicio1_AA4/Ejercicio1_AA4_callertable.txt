@@ -1,0 +1,10 @@
+main
+	__FillZeros
+	configurar_maquina
+		GPIO_Digital_Output
+			GPIO_Config
+				GPIO_Clk_Enable
+		GPIO_Digital_Input
+			GPIO_Config
+	iniciar_variables
+	proceso
