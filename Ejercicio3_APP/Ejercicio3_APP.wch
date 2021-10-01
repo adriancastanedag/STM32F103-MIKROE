@@ -1,0 +1,8 @@
+<WCH v="2">
+<item n="RCC_APB2ENR" r="1" s="False" e="False" i="0"/>
+<item n="config_maq_apuntador_L0" r="1" s="False" e="True" i="1513">
+<item n="" r="1" s="False" e="False" i="0"/>
+</item>
+<item n="GPIOC_CRH" r="1" s="False" e="False" i="2"/>
+<item n="GPIOA_CRL" r="1" s="False" e="False" i="3"/>
+</WCH>
