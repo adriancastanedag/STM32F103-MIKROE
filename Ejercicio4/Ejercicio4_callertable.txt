@@ -1,0 +1,12 @@
+main
+	__CC2DW
+	__FillZeros
+	conf_maq
+		config_gpios
+		config_exti
+			NVIC_IntEnable
+	ini_var
+	proceso
+playpause
+	establece
+leer_dipsw
