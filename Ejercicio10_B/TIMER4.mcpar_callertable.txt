@@ -1,0 +1,5 @@
+main
+	__FillZeros
+	Conf_maq
+	Ini_var
+conmutar

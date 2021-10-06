@@ -1,0 +1,8 @@
+main
+	__FillZeros
+	Conf_maq
+		NVIC_IntEnable
+		EnableInterrupts
+	Ini_var
+	Proceso
+playpause

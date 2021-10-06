@@ -1,0 +1,12 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103RB -BIN -LHF -DL -SSA -O11111114 -fo8 -N"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER10_B\TIMER4.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER10_B\" "TIMER4.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl"	 
+diagnostics: 0	122	Compilation Started	TIMER4.c
+hint: 0	1004	interrupt handler (conmutar at 0x002E)	TIMER4.c
+diagnostics: 46	123	Compiled Successfully	TIMER4.c
+diagnostics: 0	127	All files Compiled in 63 ms	 
+hint: 0	1144	Used RX: 11 (69%)   Free RX: 5 (31%)	Used RX: 11 (69%)   Free RX: 5 (31%)
+hint: 0	1144	Static RAM (bytes): 4   Dynamic RAM (bytes): 20473	Static RAM (bytes): 4   Dynamic RAM (bytes): 20473
+hint: 0	1144	Used ROM (bytes): 942 (1%)  Free ROM (bytes): 130130 (99%)	Used ROM (bytes): 942 (1%)  Free ROM (bytes): 130130 (99%)
+diagnostics: 0	125	Project Linked Successfully	TIMER4.mcpar
+diagnostics: 0	128	Linked in 375 ms	 
+diagnostics: 0	129	Project 'TIMER4.mcpar' completed: 657 ms	 
+diagnostics: 0	103	Finished successfully: 06 jul. 2017, 09:48:44	TIMER4.mcpar

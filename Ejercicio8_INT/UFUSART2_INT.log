@@ -1,0 +1,12 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103RB -BIN -LHF -DL -SSA -O11111114 -fo24 -N"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER8_INT\UFUSART2_INT.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER8_INT\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" "UFUSART2_INT.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl"	 
+diagnostics: 0	122	Compilation Started	UFUSART2_INT.c
+hint: 0	1004	interrupt handler (recepcion at 0x0036)	UFUSART2_INT.c
+diagnostics: 53	123	Compiled Successfully	UFUSART2_INT.c
+diagnostics: 0	127	All files Compiled in 78 ms	 
+hint: 0	1144	Used RX: 13 (81%)   Free RX: 3 (19%)	Used RX: 13 (81%)   Free RX: 3 (19%)
+hint: 0	1144	Static RAM (bytes): 5   Dynamic RAM (bytes): 20472	Static RAM (bytes): 5   Dynamic RAM (bytes): 20472
+hint: 0	1144	Used ROM (bytes): 1200 (1%)  Free ROM (bytes): 129872 (99%)	Used ROM (bytes): 1200 (1%)  Free ROM (bytes): 129872 (99%)
+diagnostics: 0	125	Project Linked Successfully	UFUSART2_INT.mcpar
+diagnostics: 0	128	Linked in 375 ms	 
+diagnostics: 0	129	Project 'UFUSART2_INT.mcpar' completed: 687 ms	 
+diagnostics: 0	103	Finished successfully: 06 jul. 2017, 09:49:31	UFUSART2_INT.mcpar

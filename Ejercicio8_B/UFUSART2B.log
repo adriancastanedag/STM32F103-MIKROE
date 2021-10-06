@@ -1,0 +1,11 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103RB -BIN -LHF -DL -SSA -O11111114 -fo24 -N"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER8_B\UFUSART2B.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER8_B\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" "UFUSART2B.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl"	 
+diagnostics: 0	122	Compilation Started	UFUSART2B.c
+diagnostics: 51	123	Compiled Successfully	UFUSART2B.c
+diagnostics: 0	127	All files Compiled in 172 ms	 
+hint: 0	1144	Used RX: 12 (75%)   Free RX: 4 (25%)	Used RX: 12 (75%)   Free RX: 4 (25%)
+hint: 0	1144	Static RAM (bytes): 4   Dynamic RAM (bytes): 20473	Static RAM (bytes): 4   Dynamic RAM (bytes): 20473
+hint: 0	1144	Used ROM (bytes): 1080 (1%)  Free ROM (bytes): 129992 (99%)	Used ROM (bytes): 1080 (1%)  Free ROM (bytes): 129992 (99%)
+diagnostics: 0	125	Project Linked Successfully	UFUSART2B.mcpar
+diagnostics: 0	128	Linked in 391 ms	 
+diagnostics: 0	129	Project 'UFUSART2B.mcpar' completed: 797 ms	 
+diagnostics: 0	103	Finished successfully: 05 jul. 2017, 02:16:56	UFUSART2B.mcpar

@@ -1,0 +1,4 @@
+<WCH v="2">
+  <item n="GPIOB_CRL" r="1" s="False" e="False" i="67"/>
+  <item n="GPIOB_ODR" r="1" s="False" e="False" i="70"/>
+</WCH>

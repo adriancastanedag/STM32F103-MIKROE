@@ -1,0 +1,146 @@
+#define DISPLAY     GPIOB_ODR
+#define DIPSW       GPIOC_IDR
+#define LED         GPIOA_ODR.B5
+#define BOTON       GPIOC_IDR.B13
+#define CERO        0XC0
+#define UNO         0XF9
+#define DOS         0XA4
+#define TRES        0XB0
+#define CUATRO      0X99
+#define CINCO       0X92
+#define SEIS        0X82
+#define SIETE       0XF8
+#define OCHO        0x80
+#define NUEVE       0X90
+#define CARA        0X88
+#define CARB        0X83
+#define CARC        0XA7
+#define CARD        0XA1
+#define CARE        0X86
+#define CARF        0X8E
+//Declara variables globales
+const unsigned short int segmentos[]={CERO,UNO,DOS,TRES,CUATRO,CINCO,SEIS,
+    SIETE,OCHO,NUEVE,CARA,CARB,CARC,CARD,CARE,CARF};
+const unsigned short int segmentos2[]={CARF,CARA,CARC,CARE,DOS,CINCO,CARF,CARA,CARC,CARE};
+
+unsigned short int contador,play;
+// declarar solo la cabecera de las funciones
+void Conf_maq();
+void Ini_var();
+void Proceso();
+
+void main()
+{
+  Conf_maq();
+  Ini_var();
+  while(1)  // Bucle principal
+  {
+    Proceso();
+  }
+}
+
+void Conf_maq()
+{
+
+   RCC_APB2ENR|=1<<IOPBEN; //hABILITA EL RELOJ DEL PUERTO B
+    //APAGA LOS BITS DE CONFIGURACION DEL PB8 A PB15
+   GPIOB_CRH&=~( (15<<(0*4))|(15<<(1*4))|(15<<(2*4))|(15<<(3*4))|
+                 (15<<(4*4))|(15<<(5*4))|(14<<(6*4))|(15<<(7*4)));
+   //PUERTO B DEL B8 B15 COMO SALIDAS OPEN DRAIN 2MHZ
+   GPIOB_CRH|= ( (6<<(0*4))|(6<<(1*4))|(6<<(2*4))|(6<<(3*4))|
+                 (6<<(4*4))|(6<<(5*4))|(6<<(6*4))|(6<<(7*4)));
+/*
+   //PUERTO B DEL B0 B7 COMO SALIDAS PUSH PULL 2MHZ
+   GPIOB_CRL|= ( (2<<(0*4))|(2<<(1*4))|(2<<(2*4))|(2<<(3*4))|
+                 (2<<(4*4))|(2<<(5*4))|(2<<(6*4))|(2<<(7*4)));*/
+   //cONFIGURAR PB4 COMO ENTRADA CON PULLUP
+   GPIOB_CRL &=~ (15<<(4*4));
+   GPIOB_CRL |= (8<<(4*4));
+   GPIOB_ODR.B4=1; //ACTIVA RESISTENCIA DE PULLUP
+   
+   //PUERTO C BIT13 COMO ENTRADA FLOTANTE
+   RCC_APB2ENR|=1<<IOPCEN;
+   GPIOC_CRH &= ~(15<<(5*4));
+   GPIOC_CRH |=  (4<<(5*4));
+   //PUERTO A BIT 5 COMO SALIDA PUSH-PULL
+   RCC_APB2ENR|=1<<IOPAEN;
+   GPIOA_CRL &= ~(15<<(5*4));
+   GPIOA_CRL |=  (2<<(5*4));
+
+   //puerto A10 como entrada con pull-down
+   GPIOA_CRH &= ~(15<<((10-8)*4));
+   GPIOA_CRH |= (8<<( (10-8)*4));
+   GPIOA_ODR.B10=0;   //ACTIVA RESISTENCIA DE PULLDOWN
+   
+   //CONFIGURACION DE INTERRUPCION EXTERNA
+   RCC_APB2ENR |= 1<<AFIOEN;
+   AFIO_EXTICR4 &= ~(15<<(1*4));
+   AFIO_EXTICR4 |= (2<<(1*4));
+   EXTI_FTSRbits.TR13=1;
+   EXTI_IMRbits.MR13=1;
+   //cONFIGURACION DE INT EXT A10
+   AFIO_EXTICR3 &=~(15<<((10-8)*4));
+   AFIO_EXTICR3 |= (0<< ( (10-2)*4));
+   EXTI_RTSRbits.TR10=1;
+   EXTI_IMRbits.MR10=1;
+   //cONFIGURACION DE INT EXT B4
+   AFIO_EXTICR2 &=~(15<<((4-4)*4));
+   AFIO_EXTICR2 |= (1<<( (4-4)*4));
+   EXTI_RTSRbits.TR4=1;
+   EXTI_IMRbits.MR4=1;
+   //---
+   RCC_APB1ENRbits.TIM4EN=1;
+   TIM4_CR1bits.CEN=0;
+   TIM4_PSC=7999;
+   TIM4_ARR=500;
+   TIM4_DIERbits.UIE=1;
+   // cONFIGURAR nvic
+   NVIC_IntEnable(IVT_INT_EXTI15_10);
+   NVIC_IntEnable(IVT_INT_EXTI4);
+   NVIC_IntEnable(IVT_INT_TIM4);
+   TIM4_CR1bits.CEN=1;
+}
+void Ini_var()
+{
+  contador = 0;
+  play=0;
+   LED=1;
+}
+void Proceso()
+{
+   if(play)
+   {
+      DISPLAY=segmentos[contador]<<8;
+   }
+}
+void playpause() iv IVT_INT_EXTI15_10 ics ICS_AUTO {
+   if(EXTI_PRbits.PR13==1)
+   {
+       EXTI_PRbits.PR13=1;
+       play=1;
+   TIM4_CR1bits.CEN=1;
+       LED=1;
+   }
+   if(EXTI_PRbits.PR10==1)
+   {
+       EXTI_PRbits.PR10=1;
+       play=0;
+   TIM4_CR1bits.CEN=0;
+       LED=0;
+   }
+
+}
+void enclavada() iv IVT_INT_EXTI4 ics ICS_AUTO {
+  unsigned short j;
+  EXTI_PRbits.PR4=1;
+  for(j=0;j<10;j++)
+  {
+    DISPLAY=segmentos2[j];
+    Delay_ms(500);
+  }
+}
+void tiempo() iv IVT_INT_TIM4 ics ICS_AUTO {
+   TIM4_SRbits.UIF=0;
+      if(++contador==16)
+         contador=0;
+}

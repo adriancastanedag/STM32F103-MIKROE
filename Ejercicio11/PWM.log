@@ -1,0 +1,11 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103RB -BIN -LHF -DL -SSA -O11111114 -fo8 -N"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER11\PWM.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\Tony Cast\OneDrive\CURSO STM32F103 JUN 17\PRACS\EJER11\" "PWM.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl"	 
+diagnostics: 0	122	Compilation Started	PWM.c
+diagnostics: 44	123	Compiled Successfully	PWM.c
+diagnostics: 0	127	All files Compiled in 78 ms	 
+hint: 0	1144	Used RX: 13 (81%)   Free RX: 3 (19%)	Used RX: 13 (81%)   Free RX: 3 (19%)
+hint: 0	1144	Static RAM (bytes): 4   Dynamic RAM (bytes): 20473	Static RAM (bytes): 4   Dynamic RAM (bytes): 20473
+hint: 0	1144	Used ROM (bytes): 1070 (1%)  Free ROM (bytes): 130002 (99%)	Used ROM (bytes): 1070 (1%)  Free ROM (bytes): 130002 (99%)
+diagnostics: 0	125	Project Linked Successfully	PWM.mcpar
+diagnostics: 0	128	Linked in 312 ms	 
+diagnostics: 0	129	Project 'PWM.mcpar' completed: 562 ms	 
+diagnostics: 0	103	Finished successfully: 06 jul. 2017, 22:00:11	PWM.mcpar
